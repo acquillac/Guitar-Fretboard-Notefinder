@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar-Notes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+        :root {
+            /*font-family: 'Montserrat', sans-serif; */
+            --main-color: #195465;
+            --dark-grn: #042a23;
+            --dark-blue: #093748;
+            --light-color: #eff9ff;
+            --highlight-color: #ff5500;
+        }
+        
+        body {
+            background-color: var(--main-color);
+            margin: 0;
+        }
+        table {
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--main-color);
+        }
+        td{
+            padding: 5px 40px;
+            color: var(--light-color);
+            background-color: var(--dark-blue);
+            border: none;
+            border-radius: 1px;
+            border: 1px solid var(--dark-grn);
+        }
+        td:hover {
+            transition: 100ms;
+            opacity: 80%;
+        } 
+        th {
+            border:  1px solid var(--dark-grn);
+            color: var(--light-color); 
+            padding:0 3rem;
+            padding: 5px 40px;
+        }
+        tr {
+            text-align: center;
+            border-bottom: var(--main-color);
+        }
+
+     
+        .container{
+            background: rgba(2,2,2,0.7);
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container::before{
+            content: '';
+            position: absolute;
+            background-image: url("background.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+        .key, .scale {
+            text-align: center;
+            padding: 1rem;
+            margin: 1rem;
+            border: 1px solid var(--dark-grn);
+            border-radius: 2px;
+            background-color: var(--dark-blue);
+        }
+        header {
+            color: var(--light-color);
+        }
+        .modes {
+            display: flex;
+        }
+        button {
+            cursor: pointer;
+            background-color: rgb(48, 72, 125);
+            border: none;
+            border-radius: 2px;
+            padding: 0.4rem 1.2rem;
+            margin: 0.2rem;
+            color: var(--light-color);
+        }
+        button:hover {
+            transition: 100ms;
+            opacity: 90%;
+        }
+
+        .scale > button {
+            color: var(--light-color);
+        }
+        .a-note{color: rgb(243, 70, 70);}
+        .b-note{color: rgb(231, 140, 71);}
+        .c-note{color: rgb(255, 249, 127);}
+        .d-note{color: rgb(157, 232, 113);}
+        .e-note{color: rgb(55, 237, 179);}
+        .f-note{color: rgb(121, 123, 228);}
+        .g-note{color: rgb(255, 127, 251);}
+    </style>
+</head>
+<body>
+  
+        <div class="container">
+            <table class="fretboard">
+                <tr>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                </tr>
+                <tr>
+                    <td class="e-note e-bg">E</td>
+                    <td class="f-note f-bg">F</td>
+                    <td class="fsharp-bg"><small><span class="f-note">F#</span> / <span class="g-note">G♭</span></small></td>
+                    <td class="g-note g-bg">G</td>
+                    <td class="gsharp-bg"><small><span class="g-note">G#</span> / <span class="a-note">A♭</span></small></td>
+                    <td class="a-note a-bg">A</td>
+                    <td class="asharp-bg"><small><span class="a-note">A#</span> / <span class="b-note">B♭</span></small></td>
+                    <td class="b-note b-bg">B</td>
+                    <td class="c-note c-bg">C</td>
+                    <td class="csharp-bg"><small><span class="c-note">C#</span> / <span class="d-note">D♭</span></small></td>
+                    <td class="d-note d-bg">D</td>
+                    <td class="dsharp-bg"><small><span class="d-note">D#</span> / <span class="e-note">E♭</span></small></td>
+                    <td class="e-note e-bg">E</td>
+                </tr>
+                <tr>
+                    <td class="a-note a-bg">A</td>
+                    <td class="asharp-bg"><small><span class="a-note">A#</span> / <span class="b-note">B♭</span></small></td>
+                    <td class="b-note b-bg">B</td>
+                    <td class="c-note c-bg">C</td>
+                    <td class="csharp-bg"><small><span class="c-note">C#</span> / <span class="d-note">D♭</span></small></td>
+                    <td class="d-note d-bg">D</td>
+                    <td class="dsharp-bg"><small><span class="d-note">D#</span> / <span class="e-note">E♭</span></small></td>
+                    <td class="e-note e-bg">E</td>
+                    <td class="f-note f-bg">F</td>
+                    <td class="fsharp-bg"><small><span class="f-note">F#</span> / <span class="g-note">G♭</span></small></td>
+                    <td class="g-note g-bg">G</td>
+                    <td class="gsharp-bg"><small><span class="g-note">G#</span> / <span class="a-note">A♭</span></small></td>
+                    <td class="a-note a-bg">A</td>
+                </tr>
+                <tr>
+                    <td class="d-note d-bg">D</td>
+                    <td class="dsharp-bg"><small><span class="d-note">D#</span> / <span class="e-note">E♭</span></small></td>
+                    <td class="e-note e-bg">E</td>
+                    <td class="f-note f-bg">F</td>
+                    <td class="fsharp-bg"><small><span class="f-note">F#</span> / <span class="g-note">G♭</span></small></td>
+                    <td class="g-note g-bg">G</td>
+                    <td class="gsharp-bg"><small><span class="g-note">G#</span> / <span class="a-note">A♭</span></small></td>
+                    <td class="a-note a-bg">A</td>
+                    <td class="asharp-bg"><small><span class="a-note">A#</span> / <span class="b-note">B♭</span></small></td>
+                    <td class="b-note b-bg">B</td>
+                    <td class="c-note c-bg">C</td>
+                    <td class="csharp-bg"><small><span class="c-note">C#</span> / <span class="d-note">D♭</span></small></td>
+                    <td class="d-note d-bg">D</td>
+                </tr>
+                <tr>
+                    <td class="g-note g-bg">G</td>
+                    <td class="gsharp-bg"><small><span class="g-note">G#</span> / <span class="a-note">A♭</span></small></td>
+                    <td class="a-note a-bg">A</td>
+                    <td class="asharp-bg"><small><span class="a-note">A#</span> / <span class="b-note">B♭</span></small></td>
+                    <td class="b-note b-bg">B</td>
+                    <td class="c-note c-bg">C</td>
+                    <td class="csharp-bg"><small><span class="c-note">C#</span> / <span class="d-note">D♭</span></small></td>
+                    <td class="d-note d-bg">D</td>
+                    <td class="dsharp-bg"><small><span class="d-note">D#</span> / <span class="e-note">E♭</span></small></td>
+                    <td class="e-note e-bg">E</td>
+                    <td class="f-note f-bg">F</td>
+                    <td class="fsharp-bg"><small><span class="f-note">F#</span> / <span class="g-note">G♭</span></small></td>
+                    <td class="g-note g-bg">G</td>
+                </tr>
+                <tr>
+                    <td class="b-note b-bg">B</td>
+                    <td class="c-note c-bg">C</td>
+                    <td class="csharp-bg"><small><span class="c-note">C#</span> / <span class="d-note">D♭</span></small></td>
+                    <td class="d-note d-bg">D</td>
+                    <td class="dsharp-bg"><small><span class="d-note">D#</span> / <span class="e-note">E♭</span></small></td>
+                    <td class="e-note e-bg">E</td>
+                    <td class="f-note f-bg">F</td>
+                    <td class="fsharp-bg"><small><span class="f-note">F#</span> / <span class="g-note">G♭</span></small></td>
+                    <td class="g-note g-bg">G</td>
+                    <td class="gsharp-bg"><small><span class="g-note">G#</span> / <span class="a-note">A♭</span></small></td>
+                    <td class="a-note a-bg">A</td>
+                    <td class="asharp-bg"><small><span class="a-note">A#</span> / <span class="b-note">B♭</span></small></td>
+                    <td class="b-note b-bg">B</td>
+                </tr>
+                <tr>
+                    <td class="e-note e-bg">E</td>
+                    <td class="f-note f-bg">F</td>
+                    <td class="fsharp-bg"><small><span class="f-note">F#</span> / <span class="g-note">G♭</span></small></td>
+                    <td class="g-note g-bg">G</td>
+                    <td class="gsharp-bg"><small><span class="g-note">G#</span> / <span class="a-note">A♭</span></small></td>
+                    <td class="a-note a-bg">A</td>
+                    <td class="asharp-bg"><small><span class="a-note">A#</span> / <span class="b-note">B♭</span></small></td>
+                    <td class="b-note b-bg">B</td>
+                    <td class="c-note c-bg">C</td>
+                    <td class="csharp-bg"><small><span class="c-note">C#</span> / <span class="d-note">D♭</span></small></td>
+                    <td class="d-note d-bg">D</td>
+                    <td class="dsharp-bg"><small><span class="d-note">D#</span> / <span class="e-note">E♭</span></small></td>
+                    <td class="e-note e-bg">E</td>
+                </tr>
+            </table>
+            <div class="modes">
+                <div class="key">
+                    <header>Key</header>
+                    <button class="e-note" id="E">E</button>
+                    <button class="f-note" id="F">F</button>
+                    <button id="F#"><small><span class="f-note">F#</span> / <span class="g-note">G♭</span></small></button>
+                    <button class="g-note" id="G">G</button>
+                    <button id="G#"><small><span class="g-note">G#</span> / <span class="a-note">A♭</span></small></button>
+                    <button class="a-note" id="A">A</button>
+                    <button id="A#"><small><span class="a-note">A#</span> / <span class="b-note">B♭</span></small></button>
+                    <button class="b-note" id="B">B</button>
+                    <button class="c-note" id="C">C</button>
+                    <button id="C#"><small><span class="c-note">C#</span> / <span class="d-note">D♭</span></small></button>
+                    <button class="d-note" id="D">D</button>
+                    <button id="D#"><small><span class="d-note">D#</span> / <span class="e-note">E♭</span></small></button>
+                </div>
+                <div class="scale">
+                    <Header>Scale</Header>
+                    <button id="Major">Major</button>
+                    <button id="Minor">Minor</button>
+                </div>
+            </div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>
